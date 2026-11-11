@@ -1620,28 +1620,24 @@ h3 {
 }
 
 
+
 /* ========================================
-   THE ATC ADVANTAGE
+   THE ATC ADVANTAGE — IMAGE OVERLAP
 ======================================== */
 
 .atc-advantage {
-    padding: 100px 0;
-    background: var(--navy);
+    position: relative;
+    padding: 0 0 90px;
+    background: var(--white);
 }
 
-.atc-advantage__grid {
-    display: grid;
-    grid-template-columns: 1.1fr 0.9fr;
-    align-items: center;
-    gap: 85px;
-}
-
-/* Image */
+/* Full-width background photograph */
 
 .atc-advantage__image {
-    height: 500px;
+    position: relative;
+    width: 100%;
+    height: 580px;
     overflow: hidden;
-    border-radius: 8px;
 }
 
 .atc-advantage__image img {
@@ -1652,11 +1648,29 @@ h3 {
     object-position: center;
 }
 
-/* Content */
+/* Container holding overlapping content */
+
+.atc-advantage__container {
+    position: relative;
+    z-index: 2;
+}
+
+/* Navy content box */
 
 .atc-advantage__content {
-    max-width: 560px;
+    position: relative;
+    width: min(100%, 650px);
+    max-width: 650px;
+
+    margin-top: -115px;
+    padding: 55px 60px;
+
+    background: var(--navy);
+    border-radius: 4px;
+    box-shadow: 0 18px 45px rgba(0, 20, 45, 0.15);
 }
+
+/* Label */
 
 .atc-advantage__label {
     margin-bottom: 22px;
@@ -1666,6 +1680,8 @@ h3 {
     letter-spacing: 0.14em;
 }
 
+/* Heading */
+
 .atc-advantage__content h2 {
     margin-bottom: 25px;
     color: var(--white);
@@ -1674,6 +1690,8 @@ h3 {
     line-height: 1.1;
     letter-spacing: -0.045em;
 }
+
+/* Description */
 
 .atc-advantage__description {
     margin-bottom: 35px;
@@ -1709,53 +1727,88 @@ h3 {
 }
 
 .atc-advantage__button:focus-visible {
-    outline: 3px solid var(--white);
+    outline: 3px solid var(--gold);
     outline-offset: 4px;
 }
 
-/* Responsive */
+/* ========================================
+   RESPONSIVE — TABLETS
+======================================== */
 
 @media (max-width: 1000px) {
-    .atc-advantage__grid {
-        gap: 45px;
-    }
 
     .atc-advantage__image {
-        height: 440px;
+        height: 480px;
     }
+
+    .atc-advantage__content {
+        width: min(100%, 580px);
+        margin-top: -90px;
+        padding: 45px;
+    }
+
+    .atc-advantage__content h2 {
+        font-size: clamp(2.5rem, 5vw, 3.8rem);
+    }
+
 }
 
-@media (max-width: 750px) {
-    .atc-advantage {
-        padding: 70px 0;
-    }
+/* ========================================
+   RESPONSIVE — MOBILE
+======================================== */
 
-    .atc-advantage__grid {
-        grid-template-columns: 1fr;
-        gap: 40px;
+@media (max-width: 750px) {
+
+    .atc-advantage {
+        padding-bottom: 65px;
     }
 
     .atc-advantage__image {
         height: 350px;
     }
 
+    .atc-advantage__container {
+        width: 100%;
+    }
+
     .atc-advantage__content {
+        width: 100%;
         max-width: none;
+        margin-top: 0;
+        padding: 40px 28px;
+        border-radius: 0;
+        box-shadow: none;
     }
 
     .atc-advantage__content h2 {
-        font-size: clamp(2.5rem, 8vw, 3.5rem);
-    }
-}
-
-@media (max-width: 480px) {
-    .atc-advantage__image {
-        height: 280px;
+        font-size: clamp(2.4rem, 8vw, 3.5rem);
     }
 
     .atc-advantage__description {
         font-size: 1rem;
+        line-height: 1.75;
     }
+
+}
+
+/* ========================================
+   RESPONSIVE — SMALL PHONES
+======================================== */
+
+@media (max-width: 480px) {
+
+    .atc-advantage__image {
+        height: 280px;
+    }
+
+    .atc-advantage__content {
+        padding: 35px 24px;
+    }
+
+    .atc-advantage__content h2 {
+        font-size: 2.4rem;
+    }
+
 }
 
 
